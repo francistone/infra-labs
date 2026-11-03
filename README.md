@@ -1,79 +1,40 @@
-# 🧪 Infra Labs
+# infra-labs
 
-Laboratório de infraestrutura, redes e automação.
+Laboratório de infraestrutura, redes e automação: guias de diagnóstico, um caso real analisado e um script de testes de rede. Tudo é genérico, sem dados de nenhuma rede real.
 
-Este repositório reúne testes, estudos e implementações práticas voltadas para ambientes de infraestrutura de TI, com foco em redes, servidores e troubleshooting.
+## Conteúdo
 
----
+| Área | Guia | O que tem |
+|---|---|---|
+| Diagnóstico | [Checklist de diagnóstico de rede](troubleshooting/checklist-network.md) | Roteiro em 9 etapas: do físico ao desempenho, testes em horários diferentes, causas prováveis e registro do diagnóstico |
+| Diagnóstico | [Diagnóstico de problemas de rede](troubleshooting/network-diagnosis.md) | Conectividade, DNS, rota, interface e desempenho, passo a passo, e as causas mais prováveis |
+| Diagnóstico | [Análise de caso real](troubleshooting/real-case-analysis.md) | Upload pela metade e latência oscilando: testes, análise e conclusão |
+| Monitoramento | [Testes de rede](monitoring/network-tests.md) | Métricas, testes de latência e velocidade, monitoramento contínuo |
+| Monitoramento | [Script de diagnóstico](monitoring/network-diagnostic.sh) | Conectividade, DNS, rota, interfaces, tabela de rotas e porta 53, em um comando |
+| Linux | [Comandos básicos para infraestrutura](linux/basic-commands.md) | Arquivos, rede, portas, processos e disco |
 
-## 🎯 Objetivo
+## Como usar o script
 
-Centralizar conhecimento técnico e experimentos reais envolvendo:
-
-- Redes (TCP/IP, NAT, DHCP, DNS)
-- Equipamentos de rede
-- Servidores Linux
-- Diagnóstico e análise de problemas
-- Automação e testes de performance
-
----
-
-## 📂 Estrutura do repositório
-
-```bash
-infra-labs/
-│
-├── linux/           # Comandos, scripts e configurações Linux
-├── networking/      # Testes, conceitos e configurações de rede
-├── monitoring/      # Testes de desempenho e monitoramento
-├── troubleshooting/ # Diagnóstico e resolução de problemas
-└── docs/            # Documentação técnica geral
-```
-
----
-
-## 📚 Conteúdos disponíveis
-
-### 🔧 Troubleshooting
-- Diagnóstico de problemas de rede  
-- Checklist técnico de diagnóstico  
-- Análise de caso real  
-
-### 🐧 Linux
-- Comandos básicos para infraestrutura  
-
-### 📊 Monitoramento
-- Testes de rede  
-- Script de diagnóstico automatizado  
-
----
-
-## ⚙️ Script de diagnóstico
-
-Local: `monitoring/network-diagnostic.sh`
-
----
-
-## 🔧 Como usar
+Requer `ping`, `traceroute`, `ip` e `nc` (netcat).
 
 ```bash
 chmod +x monitoring/network-diagnostic.sh
 ./monitoring/network-diagnostic.sh
 ```
 
+A saída mostra, em ordem: conectividade com um DNS público, resolução de nomes, a rota até a internet, as interfaces e rotas da máquina e se a porta 53 responde. **Antes de compartilhar o resultado, apague os IPs e os nomes de interface da sua rede.**
+
+## Princípios
+
+- Conteúdo genérico: nenhum IP, faixa de rede, provedor ou equipamento identificável.
+- Cada guia parte de um sintoma real e termina numa ação concreta.
+
+## Próximos passos
+
+- Guias de DNS recursivo com Pi-hole e Unbound
+- Exemplos de segmentação por VLAN
+- Versão do script com saída resumida para colar em chamados
+
 ---
 
-## 🚀 Evolução
-
-Este repositório será atualizado continuamente com:
-
-- Novos procedimentos técnicos  
-- Scripts de automação  
-- Estudos de caso reais  
-- Melhoria contínua dos diagnósticos  
-
----
-
-## 📌 Observação
-
-Todo o conteúdo é genérico e voltado para fins técnicos e educacionais, sem exposição de dados sensíveis.
+Parte do perfil de [@francistone](https://github.com/francistone).
